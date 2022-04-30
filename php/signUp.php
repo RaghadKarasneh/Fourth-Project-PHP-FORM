@@ -16,6 +16,7 @@ $_SESSION['password']=$_POST['signUpPassword'];
 $_SESSION['confirmPassword']=$_POST['signUpConfirmPassword'];
 $_SESSION['phoneNumber']=$_POST['phoneNumber'];
 $_SESSION['dateOfBirth']=$_POST['DOB'];
+$_SESSION['array']=array('');
     // First name check
     if(preg_match($name_regex,$_SESSION['firstName'])){
         $firstName_result="<span style=' color:green'>Correct Name</span>";
@@ -51,9 +52,11 @@ $_SESSION['dateOfBirth']=$_POST['DOB'];
     //Email
     if(preg_match($email_regex,$_SESSION['email'])){
         $email_result="<span style=' color:green'>Correct Email</span>";
+        $email_correct=true;
     }
     else{
         $email_result="<span style=' color:red'>Incorrect Email</span>";
+        $email_correct=false;
     }
     //Password
     if(preg_match($password_regex,$_SESSION['password'])){
@@ -66,8 +69,16 @@ $_SESSION['dateOfBirth']=$_POST['DOB'];
     }
     //Confirm Password
     if(preg_match($password_regex,$_SESSION['confirmPassword'])){
-        $confirmPassword_result="<span style=' color:green'>Correct Password</span>";
-        $confirmPassword_correct=true;
+        if ($_SESSION['confirmPassword'] == $_SESSION['password']){
+            $password_match=true;
+            $confirmPassword_correct=true;
+            $confirmPassword_result="<span style=' color:green'>Correct Password</span>";
+        }
+        else{
+            $password_match=false;
+            $confirmPassword_result="<span style=' color:red'>Password doesn't match</span>";
+        }
+        
     }
     else{
         $confirmPassword_result="<span style=' color:red'>Incorrect Password, your password shoud have: 8 charactersat least, At least one uppercase English letter, At least one lowercase English letter, At least one digit, At least one special character </span>";
@@ -91,6 +102,28 @@ $_SESSION['dateOfBirth']=$_POST['DOB'];
     else{
         $dob_result="<span style=' color:red'>less than 16</span>";
         $confirmDob_correct=false;
+    }
+    if(
+        $firstName_correct && $middleName_correct && $lastName_correct && $familyName_correct && $email_correct && $confirmPassword_correct && $confirmPhone_correct && $confirmDob_correct
+    ){
+        $_SESSION['array']=array(
+            'First Name'=> $_SESSION['firstName'],
+            'Middle Name'=> $_SESSION['middleName'],
+            'Last Name'=>$_SESSION['lastName'],
+            'Family Name'=> $_SESSION['familyName'],
+            'Email'=> $_SESSION['email'],
+            'Password'=> $_SESSION['password'],
+            'Password Confirmation'=> $_SESSION['confirmPassword'],
+            'Phone Number'=> $_SESSION['phoneNumber'],
+            'Date Of Birth'=>$_SESSION['dateOfBirth']
+        );
+        // foreach ($_SESSION['array'] as $key => $value) {
+        //     echo " $key; $value\n";
+        //   }
+        header('location:welcome.php');
+    }
+    else {
+        echo 'Your information is Incorrect';
     }
 }
 
