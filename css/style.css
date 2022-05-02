@@ -1,0 +1,104 @@
+/****** SIGUN UP PAGE ******/
+.signUp_form{
+    margin-left: 10%;
+    border: 1px red solid;
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.col-lg-6{
+    padding-left: 0;
+}
+input{
+    margin: 0 10px 10px 0px;
+    width: 100%;
+}
+h1{
+    margin-bottom: 20px;
+}
+p{
+    margin-bottom: 50px;
+}
+.singUp-fields{
+    margin: auto;
+    width: 65%;
+}
+img{
+    padding: 20px;
+    margin-top: 70%;
+    margin-left: 60px;
+}
+.btn
+{
+    left: 19%;
+    margin-top: 40px;
+}
+/****** LOGIN PAGE ******/
+.login-btn {
+    left:0;
+}
+.have-account{
+    width: 24%;
+    margin: 20px auto;
+}
+.have_no_account{
+    width: 100%;
+    margin-top: 20px;
+}
+.login_form{
+    margin-left: 10%;
+    border: 1px blue solid;
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.login-fields{
+    margin: auto;
+    width: 40%;
+}
+
+/****** ADMIN WELCOME PAGE ******/
+table{
+    width: 70% !important;
+    text-align: center !important;
+    margin: auto !important;
+}
+.admin-h1{
+    margin: 50px;
+}
+td{
+    vertical-align: top;
+}
+@media (max-width:992px){
+    .singUp-fields{
+        width:100%;
+    }
+    img{
+        display: none;
+    }
+    .btn{
+        left:1px
+    }
+    .have-account{
+        width: 90%;
+    }
+    .admin-h1{
+        width:100%;
+        margin: 50px 0;
+    }
+    table{
+        width:100% !important;
+        font-size: 8px;
+
+    }
+}
+@media (min-width:992px){
+    img{
+    margin-left:8px
+    }
+    .have-account{
+        width: 30%;
+    }
+}
