@@ -146,60 +146,60 @@ $_SESSION['date_create']=date("Y-m-d"); //Date Create
                 <!--Full Name fields-->
                     <label for="fName">First Name</label>
                     <br>
-                    <input type="text" name="firstName" id="fName" >
+                    <input type="text" name="firstName" id="fName" class="form-control"  placeholder="First Name" required>
                     <br>
                     <?php if(isset($firstName_result)){echo $firstName_result;}?>
                     <br>
                     <label for="mName">Middle Name</label>
                     <br>
-                    <input type="text" name="middleName" id="mName" >
+                    <input type="text" name="middleName" id="mName"  class="form-control" placeholder="Middle Name" required>
                     <br>
                     <?php if(isset($middleName_result)){echo $middleName_result;}?>
                     <br>
                     <label for="lName">Last Name</label>
                     <br>
-                    <input type="text" name="lastName" id="lName" >
+                    <input type="text" name="lastName" id="lName"  class="form-control" placeholder="Last Name" required>
                     <br>
                     <?php if(isset($lastName_result)){echo $lastName_result;}?>
                     <br>
                     <label for="family_Name">Family Name</label>
                     <br>
-                    <input type="text" name="familyName" id="family_Name" >
+                    <input type="text" name="familyName" id="family_Name"  class="form-control" placeholder="Family Name" required>
                     <br>
                     <?php if(isset($familyName_result)){echo $familyName_result;}?>
                     <br>
                 <!--Email Number-->
                     <label for="signUpEmail">Email</label>
                     <br>
-                    <input type="email" name="signUpEmail" id="signUpEmail" required>
+                    <input type="email" name="signUpEmail" id="signUpEmail"  class="form-control"  placeholder="Your Email" required>
                     <br>
                     <?php if(isset($email_result)){echo $email_result;}?>
                     <br>
                 <!--Password-->
                     <label for="loginPassword">Password</label>
                     <br>
-                    <input type="password" name="signUpPassword" id="signUpPassword" >
+                    <input type="password" name="signUpPassword" id="signUpPassword"  class="form-control"  placeholder="Password" required>
                     <br>
                     <?php if(isset($password_result)){echo $password_result;}?>
                     <br>
                 <!--Confirm Password-->
                     <label for="signUpConfirmPassword">Confirm Password</label>
                     <br>
-                    <input type="password" name="signUpConfirmPassword" id="signUpConfirmPassword" >
+                    <input type="password" name="signUpConfirmPassword" id="signUpConfirmPassword"  class="form-control"  placeholder="Confirm Password" required>
                     <br>
                     <?php if(isset($confirmPassword_result)){echo $confirmPassword_result;}?>
                     <br>
                 <!--Phone Number-->
                     <label for="phoneNumber">Phone Number</label>
                     <br>
-                    <input type="number" name="phoneNumber" id="phoneNumber">
+                    <input type="number" name="phoneNumber" id="phoneNumber" class="form-control"  placeholder="Phone Number" required>
                     <br>
                     <?php if(isset($phoneNumber_result)){echo $phoneNumber_result;}?>
                     <br>
                 <!--Date Of Birth-->
                     <label for="DOB">Date Of Birth</label>
                     <br>
-                    <input type="date" name="DOB" id="DOB">
+                    <input type="date" name="DOB" id="DOB" class="form-control"  placeholder="Date Of Birth" required>
                     <br>
                     <?php if(isset($dob_result)){echo $dob_result;}?>
                     <br>
@@ -209,7 +209,7 @@ $_SESSION['date_create']=date("Y-m-d"); //Date Create
                     <img src="https://th.bing.com/th/id/R.0a43276bcb8cee31aa3730eea3337ae9?rik=leujVH%2b24cs0ew&riu=http%3a%2f%2fcliparts.co%2fcliparts%2f8iE%2f6X7%2f8iE6X7dgT.jpg&ehk=iXqnWzP5Ydu88AiWxcFfT1ZNeO83Rh6tG2xSL6rO57w%3d&risl=&pid=ImgRaw&r=0" height="400px" width="400px" alt="Sign Up">
                 </div>
             </div>
-            <input type="submit" value="submit" name="submit" class="btn btn-outline-danger col-lg-8">
+            <input type="submit" value="Submit" name="submit" class="btn btn-outline-danger col-lg-8">
             <div class="have-account">Already have an account? <a href="login.php">Login</a></div>
         </form>
     </div>

@@ -76,16 +76,16 @@ if (isset($_POST['submit'])){
                 <label for="loginEmail">Email</label>
                 <br>
                 <!--Email-->
-                <input type="email" name="loginEmail" id="loginEmail">
+                <input type="email" name="loginEmail" id="loginEmail" class="form-control"  placeholder="Your Email" required>
                 <?php if(isset($loginEmail_result)){echo $loginEmail_result;}?>
                 <br>
                 <!--Password-->
                 <label for="loginPassword">Password</label>
                 <br>
-                <input type="password" name="loginPassword" id="loginPassword">
+                <input type="password" name="loginPassword" id="loginPassword" class="form-control"  placeholder="Password" required>
                 <?php if(isset($loginPassword_result)){echo $loginPassword_result;}?>
                 <br>
-                <input type="submit" value="submit" name="submit" class="login-btn btn btn-outline-primary col-lg-12">
+                <input type="submit" value="Submit" name="submit" class="login-btn btn btn-outline-primary col-lg-12">
                 <div class="have_no_account text-center">Don't have an account? <a href="signUp.php">Sign Up</a></div>
             </div>
         </form>

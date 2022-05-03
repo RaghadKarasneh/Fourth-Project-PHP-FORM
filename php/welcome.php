@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo "<p>Welcome ". $_SESSION['email'] ."your name is: ".$_SESSION['firstName']." ".$_SESSION['middleName']." ".$_SESSION['lastName']." ".$_SESSION['familyName']. " And your number is ". $_SESSION['phoneNumber']."</p>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +9,12 @@ echo "<p>Welcome ". $_SESSION['email'] ."your name is: ".$_SESSION['firstName'].
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../Bootstrap-css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<h1 class="text-center"> Welcome <?php echo $_SESSION['firstName']; ?> To Our Home Page ! <h1>
-    <h3 class="text-center"> Your Email is <?php echo $_SESSION['email']; ?> </h3>
+    <div class="user-welcome">
+        <h1 class="text-center"> Welcome <?php echo$_SESSION['firstName']." ".$_SESSION['middleName']." ".$_SESSION['lastName']." ".$_SESSION['familyName']; ?> To Your Home Page! </h1>
+        <p class="text-center"> We want to remind you that your email is: <?php echo $_SESSION['email']; ?>, and your phone number is: <?php echo $_SESSION['phoneNumber']; ?> </p>
+    </div>
 </body>
 </html>
