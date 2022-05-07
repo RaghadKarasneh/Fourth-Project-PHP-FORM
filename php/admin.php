@@ -2,7 +2,6 @@
 session_start();
 setCookie('FirstName', date("H:i:s-m/d/y"), 60*24*60*60+time());
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,9 +28,6 @@ setCookie('FirstName', date("H:i:s-m/d/y"), 60*24*60*60+time());
             </tr>
         </thead>
         <tbody>
-   
-            
-       
                 <?php
                      $id= 1;
                      foreach ($_SESSION["user_array"] as $value) {

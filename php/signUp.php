@@ -4,7 +4,6 @@ $name_regex="/^([a-zA-Z' ]+)$/";
 $email_regex="/^[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/";
 $password_regex = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"; 
 $phoneNumber_regex="/^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})?[-.\\s]?([0-9]{4})$/";
-
 if (isset($_POST['submit'])){
 $_SESSION['firstName']=$_POST['firstName'];
 $_SESSION['middleName']=$_POST['middleName'];
@@ -78,7 +77,6 @@ $_SESSION['date_create']=date("Y-m-d"); //Date Create
             $password_match=false;
             $confirmPassword_result="<span style=' color:red'>Password doesn't match</span> <br>";
         }
-        
     }
     else{
         $confirmPassword_result="<span style=' color:red'>Incorrect Password, your password shoud have:<br>1- 8 characters at least<br>2- At least one uppercase English letter<br>3- At least one lowercase English letter<br>4- At least one digit<br>5- At least one special character </span> <br>";
