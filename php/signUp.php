@@ -204,7 +204,7 @@ if (isset($_POST['submit'])){
     }
     else{
         $password_result="<span style=' color:red'>Incorrect Password, your password shoud have:<br>1- 8 characters at least<br>2- At least one uppercase English letter<br>3- At least one lowercase English letter<br>4- At least one digit<br>5- At least one special character </span> <br>";
-        $paswword_correct=false;
+        $password_correct=false;
     }
     //Confirm Password
     if(preg_match($password_regex,$_SESSION['confirmPassword'])){
