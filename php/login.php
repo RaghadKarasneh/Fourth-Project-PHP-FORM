@@ -2,33 +2,33 @@
 session_start();
 
 if (isset($_POST['submit'])){
-    
+     
     $_SESSION['loginEmail']=$_POST['loginEmail'];
     $_SESSION['loginPassword']=$_POST['loginPassword'];
     $adminEmail_correct=true;
     $adminPass_correct=true;
 
-    foreach ($_SESSION['user_array'] as $value) {
+    foreach ($_SESSION['array'] as $key => $value) {
         //Check Email
-       
-            if($_SESSION['loginEmail']==($value['Email']||'admin@gmail.com')){
+        if($key == 'Email'){
+            if($_SESSION['loginEmail']==($value||'admin@gmail.com')){
                 $loginEmail_result="<span style=' color:green'>Correct Email</span><br>";
                 $loginEmail_correct=true;
             }else{
                 $loginEmail_result="<span style=' color:red'>Incorrect Email</span><br>";
                 $loginEmail_correct=false;
             }
-        
+        }
         //Check Password
-       
-            if($_SESSION['loginPassword']==$value['Password']){
+        if($key == 'Password Confirmation'){
+            if($_SESSION['loginPassword']==$value){
                 $loginPassword_result="<span style=' color:green'>Correct Password</span><br>";
                 $loginPassword_correct=true;
             }else{
                 $loginPassword_result="<span style=' color:red'>Incorrect Password</span><br>";
                 $loginPassword_correct=false;
             }
-      
+        }
     }
     if($loginEmail_correct && $loginPassword_correct)
         header('location:welcome.php');
