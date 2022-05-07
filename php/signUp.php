@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 $name_regex="/^([a-zA-Z' ]+)$/";
 $email_regex="/^[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/";
 $password_regex = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"; 
@@ -83,7 +82,7 @@ $_SESSION['date_create']=date("Y-m-d"); //Date Create
     }
     else{
         $confirmPassword_result="<span style=' color:red'>Incorrect Password, your password shoud have:<br>1- 8 characters at least<br>2- At least one uppercase English letter<br>3- At least one lowercase English letter<br>4- At least one digit<br>5- At least one special character </span> <br>";
-        $confirmPaswword_correct=false;
+        $confirmPassword_correct=false;
     }
     //Phone
     if(preg_match($phoneNumber_regex,$_SESSION['phoneNumber'])){
@@ -104,23 +103,36 @@ $_SESSION['date_create']=date("Y-m-d"); //Date Create
         $dob_result="<span style=' color:red'>Your age is less than 16</span> <br>";
         $confirmDob_correct=false;
     }
+    $firstName=$_SESSION['firstName'];
+    $middleName=$_SESSION['middleName'];
+    $lastName=$_SESSION['lastName'];
+    $familyName=$_SESSION['familyName'];
+    $email=$_SESSION['email'];
+    $password=$_SESSION['password'];
+    $confirmPassword=$_SESSION['confirmPassword'];
+    $phoneNumber=$_SESSION['phoneNumber'];
+    $dateOfBirth=$_SESSION['dateOfBirth'];
+    $dateCreate=$_SESSION['date_create']; //Date Create
     if(
         $firstName_correct && $middleName_correct && $lastName_correct && $familyName_correct && $email_correct && $confirmPassword_correct && $confirmPhone_correct && $confirmDob_correct
     ){
-        $_SESSION['array']=array(
-            'First Name'=> $_SESSION['firstName'],
-            'Middle Name'=> $_SESSION['middleName'],
-            'Last Name'=>$_SESSION['lastName'],
-            'Family Name'=> $_SESSION['familyName'],
-            'Email'=> $_SESSION['email'],
-            'Password'=> $_SESSION['password'],
-            'Password Confirmation'=> $_SESSION['confirmPassword'],
-            'Phone Number'=> $_SESSION['phoneNumber'],
-            'Date Of Birth'=>$_SESSION['dateOfBirth']
-        );
+
+        $arr=[
+            "First Name"=>  $firstName,
+            "Middle Name"=> $middleName,
+            "Last Name"=> $lastName,
+            "Family Name"=> $familyName,
+            "Email"=> $email,
+            "Password"=> $password,
+            "Password Confirmation"=>   $confirmPassword,
+            "Phone Number"=> $phoneNumber,
+            "Date Of Birth"=>$dateOfBirth,
+            "Date Create"=> $dateCreate,
+        ];
         // foreach ($_SESSION['array'] as $key => $value) {
         //     echo " $key; $value\n";
         //   }
+        array_push($_SESSION['user_array'],$arr);
         header('location:welcome.php');
     }
 }
