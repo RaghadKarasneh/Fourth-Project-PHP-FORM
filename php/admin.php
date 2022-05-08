@@ -1,6 +1,5 @@
 <?php
 session_start();
-setCookie('FirstName', date("m/d/y"), 60*24*60*60+time());
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,21 +36,11 @@ setCookie('FirstName', date("m/d/y"), 60*24*60*60+time());
                                  <td>".$value['Email']."</td>
                                  <td>".$value['Password']."</td>
                                  <td>".$value['Date Create']."</td>
-                                 <td>".$_COOKIE['FirstName']."</td>
+                                 <td>".$value['Last-Login-Date']."</td>
                              </tr>";
-                        // echo "<tr>
-                        //          <td>".$id."</td>
-                        //          <td>".$_SESSION['firstName']."</td>
-                        //          <td>".$_SESSION['email']."</td>
-                        //          <td>".$_SESSION['password']."</td>
-                        //          <td>".$_SESSION['date_create']."</td>
-                        //          <td>".$_COOKIE['FirstName']."</td>
-                        //      </tr>";
-                         $id++;
-                         
+                         $id++;  
                     }
                      ?>
-           
         </tbody>
     </table>
 </body>

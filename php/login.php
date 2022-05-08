@@ -8,31 +8,34 @@ if (isset($_POST['submit'])){
     $adminEmail_correct=true;
     $adminPass_correct=true;
 
-    foreach ($_SESSION['array'] as $value) {
+    foreach ($_SESSION['array'] as $key=> $value) {
         //Check Email
       
-            if($_SESSION['loginEmail']==($value['Email']||'admin@gmail.com')){
+            if($_SESSION['loginEmail']==($value['Email'])){
                 $loginEmail_result="<span style=' color:green'>Correct Email</span><br>";
                 $loginEmail_correct=true;
-            }else{
-                $loginEmail_result="<span style=' color:red'>Incorrect Email</span><br>";
-                $loginEmail_correct=false;
-            }
+                        //Check Password
         
-        //Check Password
-    
-            if($_SESSION['loginPassword']==$value['Password']){
-                $loginPassword_result="<span style=' color:green'>Correct Password</span><br>";
+            if(($_SESSION['loginPassword']==$value['Password'])){
+                $loginPassword_result="<span style=' color:red'>Incorrect Password</span><br>";;
                 $loginPassword_correct=true;
             }else{
                 $loginPassword_result="<span style=' color:red'>Incorrect Password</span><br>";
                 $loginPassword_correct=false;
             }
+            }else{
+                $loginEmail_result="<span style=' color:red'>Incorrect Email</span><br>";
+                $loginEmail_correct=false;
+            }
+    
         }
     
     if($loginEmail_correct && $loginPassword_correct)
+    {
         header('location:welcome.php');
-    else
+        $_SESSION["array"][$key]["Last-Login-Date"]= date("d-m-Y - h:i:sa");
+        $_SESSION["array"];
+    }else
     echo '<script language="javascript">';
     echo 'alert("Incorrect Information")'; 
     echo '</script>';
@@ -49,7 +52,7 @@ if (isset($_POST['submit'])){
 	    	$adminPass_correct=false;
 		}
 	}else{
-		$loginEmail_result="<span style=' color:red'>Incorrect Email</span><br>";
+		$loginEmail_result="<span style=' color:red'>Incorrect Email or Password</span><br>";
 		$adminEmail_correct=false;
 	}
 	if ($adminEmail_correct && $adminPass_correct ){
