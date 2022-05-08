@@ -7,6 +7,10 @@ $password_regex = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,
 $phoneNumber_regex="/^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})?[-.\\s]?([0-9]{4})$/";
 
 if (isset($_POST['submit'])){
+    if(!empty($_POST['firstName'])) $x1= $_POST['firstName'];
+    // if(!empty($mobile)) $x2= $mobile;
+    // if(!empty($fullName)) $x3= $fullName;
+    // if(!empty($birthDate)) $x4= $birthDate;
     $firstName=$_POST['firstName'];
     $_SESSION['firstName']=$_POST['firstName'];
     $_SESSION['middleName']=$_POST['middleName'];
@@ -103,7 +107,7 @@ if (isset($_POST['submit'])){
         $dob_result="<span style=' color:red'>Your age is less than 16</span> <br>";
         $confirmDob_correct=false;
     }
-}
+
     $_SESSION["array"];
     if(empty($_SESSION["array"])){
         $_SESSION["array"]= [];
@@ -125,7 +129,8 @@ if (isset($_POST['submit'])){
         ];
         array_push($_SESSION["array"],$data);
         header('location:login.php');
-    }
+        exit();
+    }}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -147,7 +152,7 @@ if (isset($_POST['submit'])){
                 <!--Full Name fields-->
                     <label for="fName">First Name</label>
                     <br>
-                    <input type="text" name="firstName" id="fName" class="form-control"  placeholder="First Name"  value="<?php if(isset( $firstName)) echo  $firstName?>" required>
+                    <input type="text" name="firstName" id="fName" class="form-control"  placeholder="First Name" value="<?php if(isset($firstName_result)){echo $_POST['firstName'];}?>" required>
                     <br>
                     <?php if(isset($firstName_result)){echo $firstName_result;}?>
                     <br>
@@ -179,14 +184,14 @@ if (isset($_POST['submit'])){
                 <!--Password-->
                     <label for="loginPassword">Password</label>
                     <br>
-                    <input type="password" name="signUpPassword" id="signUpPassword"  class="form-control"  placeholder="Password" value="<?php if(isset($_POST['password']))echo $_POST['password']?>" required>
+                    <input type="password" name="signUpPassword" id="signUpPassword"  class="form-control"  placeholder="Password" value='' required>
                     <br>
                     <?php if(isset($password_result)){echo $password_result;}?>
                     <br>
                 <!--Confirm Password-->
                     <label for="signUpConfirmPassword">Confirm Password</label>
                     <br>
-                    <input type="password" name="signUpConfirmPassword" id="signUpConfirmPassword"  class="form-control"  placeholder="Confirm Password" value="<?php if(isset($_POST['confirmPassword']))echo $_POST['confirmPassword']?>" required>
+                    <input type="password" name="signUpConfirmPassword" id="signUpConfirmPassword"  class="form-control"  placeholder="Confirm Password" required>
                     <br>
                     <?php if(isset($confirmPassword_result)){echo $confirmPassword_result;}?>
                     <br>
