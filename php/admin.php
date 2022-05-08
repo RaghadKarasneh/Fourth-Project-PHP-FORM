@@ -1,6 +1,6 @@
 <?php
 session_start();
-setCookie('FirstName', date("H:i:s-m/d/y"), 60*24*60*60+time());
+setCookie('FirstName', date("m/d/y"), 60*24*60*60+time());
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,26 +30,26 @@ setCookie('FirstName', date("H:i:s-m/d/y"), 60*24*60*60+time());
         <tbody>
                 <?php
                      $id= 1;
-                    //  foreach ($_SESSION['userArray'] as $value) {
-                        //  echo "<tr>
-                        //          <td>".$id."</td>
-                        //          <td>". $_SESSION['First Name']."</td>
-                        //          <td>".$value['Email']."</td>
-                        //          <td>".$value['Password']."</td>
-                        //          <td>".$value['Date Create']."</td>
-                        //          <td>".$_COOKIE['FirstName']."</td>
-                        //      </tr>";
-                        echo "<tr>
+                     foreach ($_SESSION['array'] as $value) {
+                         echo "<tr>
                                  <td>".$id."</td>
-                                 <td>".$_SESSION['firstName']."</td>
-                                 <td>".$_SESSION['email']."</td>
-                                 <td>".$_SESSION['password']."</td>
-                                 <td>".$_SESSION['date_create']."</td>
+                                 <td>". $value['First Name']."</td>
+                                 <td>".$value['Email']."</td>
+                                 <td>".$value['Password']."</td>
+                                 <td>".$value['Date Create']."</td>
                                  <td>".$_COOKIE['FirstName']."</td>
                              </tr>";
+                        // echo "<tr>
+                        //          <td>".$id."</td>
+                        //          <td>".$_SESSION['firstName']."</td>
+                        //          <td>".$_SESSION['email']."</td>
+                        //          <td>".$_SESSION['password']."</td>
+                        //          <td>".$_SESSION['date_create']."</td>
+                        //          <td>".$_COOKIE['FirstName']."</td>
+                        //      </tr>";
                          $id++;
                          
-                    //  }
+                    }
                      ?>
            
         </tbody>

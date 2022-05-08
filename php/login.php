@@ -8,20 +8,20 @@ if (isset($_POST['submit'])){
     $adminEmail_correct=true;
     $adminPass_correct=true;
 
-    foreach ($_SESSION['array'] as $key => $value) {
+    foreach ($_SESSION['array'] as $value) {
         //Check Email
-        if($key == 'Email'){
-            if($_SESSION['loginEmail']==($value||'admin@gmail.com')){
+      
+            if($_SESSION['loginEmail']==($value['Email']||'admin@gmail.com')){
                 $loginEmail_result="<span style=' color:green'>Correct Email</span><br>";
                 $loginEmail_correct=true;
             }else{
                 $loginEmail_result="<span style=' color:red'>Incorrect Email</span><br>";
                 $loginEmail_correct=false;
             }
-        }
+        
         //Check Password
-        if($key == 'Password Confirmation'){
-            if($_SESSION['loginPassword']==$value){
+    
+            if($_SESSION['loginPassword']==$value['Password']){
                 $loginPassword_result="<span style=' color:green'>Correct Password</span><br>";
                 $loginPassword_correct=true;
             }else{
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])){
                 $loginPassword_correct=false;
             }
         }
-    }
+    
     if($loginEmail_correct && $loginPassword_correct)
         header('location:welcome.php');
     else
@@ -89,6 +89,7 @@ if (isset($_POST['submit'])){
                 <div class="have_no_account text-center">Don't have an account? <a href="signUp.php">Sign Up</a></div>
             </div>
         </form>
+        <video src="https://www.youtube.com/watch?v=mBL9Athx7ms" type="video/mp4"></video>
     </div>
 </body>
 </html>
